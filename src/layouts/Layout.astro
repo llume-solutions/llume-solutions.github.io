@@ -16,35 +16,66 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="w-full min-h-[200vh] flex flex-col items-center gap-16">
+		<header id="site-header">
+			<h1>llume.</h1>
+			<nav>
+				<a class="nav-item" href="#">About Me</a>
+				<a class="nav-item" href="#">Blog</a>
+				<a class="nav-item" href="#">Contact</a>
+			</nav>
+		</header>
+		<main></main>
 		<slot />
 	</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+	@layer base {
+		html {
+		}
+
+		body {
+		}
+
+		header {
+			@apply sticky top-0 w-full max-w-screen-lg h-16 px-8 flex justify-between items-center bg-gray-500 transition-all duration-1000;
+
+			&.wide {
+				@apply max-w-screen-2xl;
+			}
+		}
+
+		h1 {
+		}
+
+		h2 {
+		}
+
+		a {
+		}
 	}
 </style>
+
+<script>
+	window.onscroll = function () {
+		onScroll();
+	};
+
+	const header = document.getElementById("site-header");
+	const siteHeaderScrollClass = "wide";
+
+	function onScroll() {
+		const hasScrolled = document.documentElement.scrollTop > 0;
+		if (hasScrolled) {
+			header?.classList.add(siteHeaderScrollClass);
+		} else {
+			header?.classList.remove(siteHeaderScrollClass);
+		}
+
+		console.log("hassc", hasScrolled);
+	}
+</script>
