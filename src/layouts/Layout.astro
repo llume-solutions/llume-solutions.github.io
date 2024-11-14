@@ -25,11 +25,10 @@ const { title } = Astro.props;
 				<a class="nav-item" href="#">Contact</a>
 			</nav>
 		</header>
-		<main class="w-full max-w-screen-lg px-24 lg:px-0">
-			<article class="h-screen bg-red-300 pt-16 w-full flex items-end">
+		<main class="w-full max-w-screen-lg">
+			<article class="h-screen bg-red-300 pt-16 w-full flex flex-col justify-center">
 				<div>
-					<h1>llume.</h1>
-					<h1>We make apps that users love</h1>
+					<h1 class="md:max-w-[75%]">We help businesses eliminate repetitive, tedious tasks</h1>
 				</div>
 			</article>
 			<hr class="h-[2px] bg-gray-700" />
@@ -59,6 +58,7 @@ const { title } = Astro.props;
 		}
 
 		h1 {
+			@apply text-4xl;
 		}
 
 		h2 {
