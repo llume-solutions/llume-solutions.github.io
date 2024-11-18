@@ -1,5 +1,6 @@
 ---
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+import Form from "../components/Form.astro";
 
 interface Props {
 	title: string;
@@ -59,22 +60,41 @@ const { title } = Astro.props;
 					<h3>Contact us</h3>
 					<h2>How can we help?</h2>
 				</section>
+				<section>
+					<Form />
+				</section>
 			</article>
 		</main>
 
-		<footer class="w-full max-w-screen-lg bg-gray-400 grid grid-cols-3 p-12">
-			<h1>llume</h1>
-			<div class="flex flex-col gap-4">
-				<h4>Services</h4>
-				<ul>
-					<li>Business process optimisation</li>
-					<li>Digital workflow management</li>
-					<li>Turnkey e-commerce solutions</li>
-				</ul>
-			</div>
-			<div>
-				<h4>Contact</h4>
-				<address>hello@llume.co</address>
+		<footer class="w-full bg-gray-400 flex justify-center">
+			<div class="max-w-screen-lg w-full grid grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-20 p-4">
+				<h1 class="col-span-2">llume</h1>
+				<section class="flex flex-col gap-4 col-span-2">
+					<h4>Services</h4>
+					<ul>
+						<li>Business process optimisation</li>
+						<li>Digital workflow optimisation</li>
+						<li>Digital transformation</li>
+						<li>E-commerce solutions</li>
+					</ul>
+				</section>
+				<section class="flex flex-col gap-4">
+					<h4>Contact</h4>
+					<a href="mailto:enquiries@llume.co">hello@llume.co</a>
+					<address class="not-italic">
+						LLUME SOLUTIONS <br />
+						124 City Road <br />
+						London <br />
+						EC1V 2NX
+					</address>
+				</section>
+				<section class="flex flex-col gap-4">
+					<h4>Legal</h4>
+					<ul>
+						<li>Privacy policy</li>
+						<li>EULA</li>
+					</ul>
+				</section>
 			</div>
 		</footer>
 
@@ -125,6 +145,7 @@ const { title } = Astro.props;
 		}
 
 		h4 {
+			@apply text-base font-medium;
 		}
 
 		a {
