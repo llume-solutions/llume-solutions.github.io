@@ -24,9 +24,7 @@ const { title } = Astro.props;
 		<header id="site-header">
 			<a href="/"><h1>llume.</h1></a>
 			<nav>
-				<a class="nav-item" href="#">About Me</a>
-				<a class="nav-item" href="#">Blog</a>
-				<a class="nav-item" href="#">Contact</a>
+				<a class="nav-item" href="#contact">Contact</a>
 			</nav>
 		</header>
 		<main class="w-full max-w-screen-lg px-4">
@@ -55,7 +53,7 @@ const { title } = Astro.props;
 
 			<hr class="h-[1px] bg-gray-300" />
 
-			<article class="min-h-screen w-full">
+			<article class="min-h-screen w-full" id="contact">
 				<section>
 					<h3>Contact us</h3>
 					<h2>How can we help?</h2>
@@ -67,7 +65,7 @@ const { title } = Astro.props;
 		</main>
 
 		<footer class="w-full bg-gray-400 flex justify-center">
-			<div class="max-w-screen-lg w-full grid grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-20 p-4">
+			<div class="max-w-screen-lg w-full grid grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-20 py-8 px-4">
 				<h1 class="col-span-2">llume</h1>
 				<section class="flex flex-col gap-4 col-span-2">
 					<h4>Services</h4>
@@ -97,7 +95,6 @@ const { title } = Astro.props;
 				</section>
 			</div>
 		</footer>
-
 		<slot />
 	</body>
 </html>
@@ -114,7 +111,11 @@ const { title } = Astro.props;
 		}
 
 		header#site-header {
-			@apply w-full max-w-screen-lg h-20 px-4 flex justify-between items-center bg-slate-200;
+			@apply w-full max-w-screen-lg h-20 px-4 flex justify-between items-center bg-slate-200 xl:fixed xl:top-0 xl:transition-all xl:duration-300;
+
+			&.wide {
+				@apply max-w-screen-2xl bg-transparent;
+			}
 			/*
 			@apply fixed top-0 w-full max-w-screen-lg h-16 px-8 flex justify-between items-center bg-gray-200 transition-all duration-700;
 
