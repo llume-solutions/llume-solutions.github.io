@@ -1,4 +1,6 @@
 ---
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+
 interface Props {
 	title: string;
 }
@@ -14,7 +16,7 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>llume - let's automate the boring stuff</title>
 	</head>
 	<body class="w-full min-h-[200vh] flex flex-col items-center gap-16">
 		<header id="site-header">
@@ -26,14 +28,53 @@ const { title } = Astro.props;
 			</nav>
 		</header>
 		<main class="w-full max-w-screen-lg">
-			<article class="h-screen bg-red-300 pt-16 w-full flex flex-col justify-center">
-				<div>
-					<h1 class="md:max-w-[75%]">We help businesses eliminate repetitive, tedious tasks</h1>
-				</div>
+			<article>
+				<section>
+					<h1>We help businesses eliminate repetitive, boring tasks</h1>
+					<button>Let's chat</button>
+				</section>
+				<LottieAnimation src="./Animation - 1731594218293.json" autoplay="visible" />
 			</article>
-			<hr class="h-[2px] bg-gray-700" />
-			<article class="h-screen bg-purple-300  w-full">123</article>
+
+			<hr class="h-[1px] bg-gray-300" />
+
+			<article>
+				<section>
+					<h3>Scenarios</h3>
+					<h2>See our services in action</h2>
+					<p>
+						A curated list of scenarios where automation is used to decrease errors, increase profit and make customers
+						delighted to create resilient businesses.
+					</p>
+					<button>View scenarios</button>
+				</section>
+				<LottieAnimation src="./Animation - 1731944285877.json" autoplay="visible" />
+			</article>
+
+			<article class="min-h-screen w-full">
+				<section>
+					<h3>Contact us</h3>
+					<h2>How can we help?</h2>
+				</section>
+			</article>
 		</main>
+
+		<footer class="w-full max-w-screen-lg bg-gray-400 grid grid-cols-3 p-12">
+			<h1>llume</h1>
+			<div class="flex flex-col gap-4">
+				<h4>Services</h4>
+				<ul>
+					<li>Business process optimisation</li>
+					<li>Digital workflow management</li>
+					<li>Turnkey e-commerce solutions</li>
+				</ul>
+			</div>
+			<div>
+				<h4>Contact</h4>
+				<address>hello@llume.co</address>
+			</div>
+		</footer>
+
 		<slot />
 	</body>
 </html>
@@ -50,10 +91,21 @@ const { title } = Astro.props;
 		}
 
 		header#site-header {
+			@apply w-full max-w-screen-lg flex justify-between items-center h-20 bg-slate-200;
+			/*
 			@apply fixed top-0 w-full max-w-screen-lg h-16 px-8 flex justify-between items-center bg-gray-200 transition-all duration-700;
 
 			&.wide {
 				@apply max-w-screen-2xl bg-transparent;
+			}
+			*/
+		}
+
+		article {
+			@apply h-screen w-full grid items-center grid-cols-1 md:grid-cols-2;
+
+			section {
+				@apply flex flex-col items-start gap-6;
 			}
 		}
 
@@ -62,9 +114,18 @@ const { title } = Astro.props;
 		}
 
 		h2 {
+			@apply text-5xl;
+		}
+
+		h3 {
+			@apply text-2xl bg-gradient-to-r from-indigo-700 to-indigo-600 inline-block text-transparent bg-clip-text;
 		}
 
 		a {
+		}
+
+		button {
+			@apply border-2 px-8 py-2;
 		}
 	}
 </style>
