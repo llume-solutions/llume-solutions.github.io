@@ -1,12 +1,6 @@
 ---
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 import Form from "../components/Form.astro";
-
-interface Props {
-	title: string;
-}
-
-const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,7 +14,6 @@ const { title } = Astro.props;
 		<title>llume - let's automate the boring stuff</title>
 	</head>
 	<body class="w-full min-h-[200vh] flex flex-col items-center gap-16">
-		<!-- <div class="absolute inset-0 -z-10 bg-gradient-to-r from-white via-blue-500 "></div> -->
 		<header id="site-header">
 			<a href="/"><h1>llume.</h1></a>
 			<nav>
@@ -28,48 +21,7 @@ const { title } = Astro.props;
 			</nav>
 		</header>
 		<main class="w-full max-w-screen-lg px-4">
-			<article>
-				<section>
-					<h3>We're llume, a software services company</h3>
-					<h1>We help businesses write custom software to eliminate repetitive, boring tasks</h1>
-					<div class="flex gap-4">
-						<a class="button" href="#contact">Let's chat</a>
-						<a class="button" href="#scenarios">See how we can help</a>
-					</div>
-				</section>
-				<LottieAnimation src="./Animation - 1731594218293.json" autoplay="visible" />
-			</article>
-
-			<hr class="h-[1px] bg-gray-300" />
-
-			<article id="scenarios">
-				<section>
-					<h3>Scenarios</h3>
-					<h2>See our services in action</h2>
-					<p>
-						A curated list of scenarios where automation is used to decrease errors, increase profit and make customers
-						delighted to create resilient businesses.
-					</p>
-				</section>
-				<LottieAnimation src="./Animation - 1731944285877.json" autoplay="visible" />
-			</article>
-			<div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-28">
-				<a class="w-full bg-slate-900 aspect-video text-white flex items-center justify-center" href="/manufacturing">Manufacturing</a>
-				<a class="w-full bg-slate-900 aspect-video"></a>
-				<a class="w-full bg-slate-900 aspect-video"></a>
-			</div>
-
-			<hr class="h-[1px] bg-gray-300" />
-
-			<article class="min-h-screen w-full" id="contact">
-				<section>
-					<h3>Contact us</h3>
-					<h2>How can we help?</h2>
-				</section>
-				<section>
-					<Form />
-				</section>
-			</article>
+			<slot />
 		</main>
 
 		<footer class="w-full bg-gray-200 flex justify-center">
@@ -176,14 +128,4 @@ const { title } = Astro.props;
 			header?.classList.remove(siteHeaderScrollClass);
 		}
 	}
-
-	// Smooth scroll anchor links
-	document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-		anchor.addEventListener("click", (e) => {
-			e.preventDefault();
-			const anchorId = anchor.getAttribute("href");
-			const anchorLink = document.querySelector(anchorId as string);
-			anchorLink?.scrollIntoView({ behavior: "smooth" });
-		});
-	});
 </script>
