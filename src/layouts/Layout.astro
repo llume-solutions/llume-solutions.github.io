@@ -30,15 +30,19 @@ const { title } = Astro.props;
 		<main class="w-full max-w-screen-lg px-4">
 			<article>
 				<section>
-					<h1>We help businesses eliminate repetitive, boring tasks</h1>
-					<button>Let's chat</button>
+					<h3>We're llume, a software services company</h3>
+					<h1>We help businesses write custom software to eliminate repetitive, boring tasks</h1>
+					<div class="flex gap-4">
+						<a class="button" href="#contact">Let's chat</a>
+						<a class="button" href="#scenarios">See how we can help</a>
+					</div>
 				</section>
 				<LottieAnimation src="./Animation - 1731594218293.json" autoplay="visible" />
 			</article>
 
 			<hr class="h-[1px] bg-gray-300" />
 
-			<article>
+			<article id="scenarios">
 				<section>
 					<h3>Scenarios</h3>
 					<h2>See our services in action</h2>
@@ -46,10 +50,14 @@ const { title } = Astro.props;
 						A curated list of scenarios where automation is used to decrease errors, increase profit and make customers
 						delighted to create resilient businesses.
 					</p>
-					<button>View scenarios</button>
 				</section>
 				<LottieAnimation src="./Animation - 1731944285877.json" autoplay="visible" />
 			</article>
+			<div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-28">
+				<a class="w-full bg-slate-900 aspect-video text-white flex items-center justify-center" href="/manufacturing">Manufacturing</a>
+				<a class="w-full bg-slate-900 aspect-video"></a>
+				<a class="w-full bg-slate-900 aspect-video"></a>
+			</div>
 
 			<hr class="h-[1px] bg-gray-300" />
 
@@ -64,7 +72,7 @@ const { title } = Astro.props;
 			</article>
 		</main>
 
-		<footer class="w-full bg-gray-400 flex justify-center">
+		<footer class="w-full bg-gray-200 flex justify-center">
 			<div class="max-w-screen-lg w-full grid grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-20 py-8 px-4">
 				<h1 class="col-span-2">llume</h1>
 				<section class="flex flex-col gap-4 col-span-2">
@@ -116,20 +124,13 @@ const { title } = Astro.props;
 			&.wide {
 				@apply max-w-screen-2xl bg-transparent;
 			}
-			/*
-			@apply fixed top-0 w-full max-w-screen-lg h-16 px-8 flex justify-between items-center bg-gray-200 transition-all duration-700;
-
-			&.wide {
-				@apply max-w-screen-2xl bg-transparent;
-			}
-			*/
 		}
 
 		article {
 			@apply w-full min-h-[84vh] grid items-center grid-cols-1 md:grid-cols-2 gap-6;
 
 			section {
-				@apply flex flex-col items-start gap-6;
+				@apply flex flex-col items-start gap-8;
 			}
 		}
 
@@ -150,10 +151,11 @@ const { title } = Astro.props;
 		}
 
 		a {
-		}
+			@apply cursor-pointer;
 
-		button {
-			@apply border-2 px-8 py-2 cursor-pointer;
+			&.button {
+				@apply border-2 px-8 py-2;
+			}
 		}
 	}
 </style>
@@ -173,7 +175,15 @@ const { title } = Astro.props;
 		} else {
 			header?.classList.remove(siteHeaderScrollClass);
 		}
-
-		console.log("hassc", hasScrolled);
 	}
+
+	// Smooth scroll anchor links
+	document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+		anchor.addEventListener("click", (e) => {
+			e.preventDefault();
+			const anchorId = anchor.getAttribute("href");
+			const anchorLink = document.querySelector(anchorId as string);
+			anchorLink?.scrollIntoView({ behavior: "smooth" });
+		});
+	});
 </script>
