@@ -1,6 +1,7 @@
 ---
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 import Form from "../components/Form.astro";
+import { Image } from "astro:assets";
 ---
 
 <!doctype html>
@@ -15,49 +16,69 @@ import Form from "../components/Form.astro";
 	</head>
 	<body class="w-full min-h-[200vh] flex flex-col items-center gap-16">
 		<header id="site-header">
-			<a href="/"><h1>llume.</h1></a>
-			<nav>
+			<a href="/">llume.</a>
+			<nav class="flex gap-4">
+				<a class="nav-item" href="/blog">Blog</a>
 				<a class="nav-item" href="#contact">Contact</a>
 			</nav>
 		</header>
 		<main class="w-full max-w-screen-lg px-4">
-			<slot />
+			<article class="min-h-[min(80vh,800px)] py-28 flex flex-col gap-8">
+				<section class="flex flex-col gap-1">
+					<p class="text-4xl">We <span class="inline-gradient blue">build software</span></p>
+					<p class="text-4xl"><span class="inline-gradient blue">for small businesses</span> to</p>
+					<p class="text-4xl">run their entire operations through a web browser</p>
+				</section>
+				<div class="flex gap-4">
+					<a class="button" href="#contact">Let's chat</a>
+					<a class="button" href="#scenarios">See how we can help</a>
+				</div>
+			</article>
+			<!-- <LottieAnimation src="./Animation - 1731594218293.json" autoplay="visible" /> -->
+			<article class="min-h-screen w-full grid md:grid-cols-2" id="contact">
+				<section>
+					<h3>Contact us</h3>
+					<h2>How can we help?</h2>
+				</section>
+				<section>
+					<Form />
+				</section>
+			</article>
 		</main>
-
-		<footer class="w-full bg-gray-200 flex justify-center">
-			<div class="max-w-screen-lg w-full grid grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-20 py-8 px-4">
-				<h1 class="col-span-2">llume</h1>
-				<section class="flex flex-col gap-4 col-span-2">
-					<h4>Services</h4>
-					<ul>
-						<li>Business process optimisation</li>
-						<li>Digital workflow optimisation</li>
-						<li>Digital transformation</li>
-						<li>E-commerce solutions</li>
-					</ul>
-				</section>
-				<section class="flex flex-col gap-4">
-					<h4>Contact</h4>
-					<a href="mailto:enquiries@llume.co">hello@llume.co</a>
-					<address class="not-italic">
-						LLUME SOLUTIONS <br />
-						124 City Road <br />
-						London <br />
-						EC1V 2NX
-					</address>
-				</section>
-				<section class="flex flex-col gap-4">
-					<h4>Legal</h4>
-					<ul>
-						<li>Privacy policy</li>
-						<li>EULA</li>
-					</ul>
-				</section>
-			</div>
-		</footer>
-		<slot />
 	</body>
+	<footer class="w-full bg-gray-200 flex justify-center">
+		<div class="max-w-screen-lg w-full grid grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-20 py-8 px-4">
+			<h1 class="col-span-2">llume</h1>
+			<section class="flex flex-col gap-4 col-span-2">
+				<h4>Services</h4>
+				<ul>
+					<li>Business process optimisation</li>
+					<li>Digital workflow optimisation</li>
+					<li>Digital transformation</li>
+					<li>E-commerce solutions</li>
+				</ul>
+			</section>
+			<section class="flex flex-col gap-4">
+				<h4>Contact</h4>
+				<a href="mailto:enquiries@llume.co">hello@llume.co</a>
+				<address class="not-italic">
+					LLUME SOLUTIONS <br />
+					124 City Road <br />
+					London <br />
+					EC1V 2NX
+				</address>
+			</section>
+			<section class="flex flex-col gap-4">
+				<h4>Legal</h4>
+				<ul>
+					<li>Privacy policy</li>
+					<li>EULA</li>
+				</ul>
+			</section>
+		</div>
+	</footer>
 </html>
+
 <style is:global>
 	@tailwind base;
 	@tailwind components;
@@ -67,23 +88,32 @@ import Form from "../components/Form.astro";
 		html {
 		}
 
+		.inline-gradient {
+			@apply inline-block text-transparent bg-clip-text;
+
+			&.blue {
+				@apply bg-gradient-to-r from-pink-600 to-indigo-400;
+			}
+		}
+
 		body {
 		}
 
 		header#site-header {
-			@apply w-full max-w-screen-lg h-20 px-4 flex justify-between items-center bg-slate-200 xl:fixed xl:top-0 xl:transition-all xl:duration-300;
+			@apply w-full max-w-screen-lg h-24 px-4 border-b-[1px] flex justify-between items-center xl:sticky xl:top-0 xl:transition-all xl:duration-300;
 
 			&.wide {
-				@apply max-w-screen-2xl bg-transparent;
+				@apply xl:max-w-screen-2xl xl:border-b-transparent;
 			}
 		}
 
 		article {
-			@apply w-full min-h-[84vh] grid items-center grid-cols-1 md:grid-cols-2 gap-6;
+			/*@apply w-full min-h-[84vh] grid items-center grid-cols-1 md:grid-cols-2 gap-6; */
+			/*@apply bg-gray-400;*/
 
-			section {
+			/* section {
 				@apply flex flex-col items-start gap-8;
-			}
+			}*/
 		}
 
 		h1 {
@@ -106,7 +136,7 @@ import Form from "../components/Form.astro";
 			@apply cursor-pointer;
 
 			&.button {
-				@apply border-2 px-8 py-2;
+				@apply px-8 py-2 rounded-sm bg-gradient-to-r from-indigo-700 to-indigo-600 text-white;
 			}
 		}
 	}

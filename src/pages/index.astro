@@ -5,16 +5,15 @@ import Form from "../components/Form.astro";
 ---
 
 <Layout>
-	<article>
+	<article class="min-h-[min(80vh,800px)]">
 		<section>
-			<h3>We're llume, a software services company</h3>
-			<h1>We help businesses write custom software to eliminate repetitive, boring tasks</h1>
+			<h1>We build software to help small business manage their operations online</h1>
 			<div class="flex gap-4">
 				<a class="button" href="#contact">Let's chat</a>
 				<a class="button" href="#scenarios">See how we can help</a>
 			</div>
 		</section>
-		<LottieAnimation src="./Animation - 1731594218293.json" autoplay="visible" />
+		<!-- <LottieAnimation src="./Animation - 1731594218293.json" autoplay="visible" /> -->
 	</article>
 
 	<hr class="h-[1px] bg-gray-300" />
@@ -50,11 +49,6 @@ import Form from "../components/Form.astro";
 		</section>
 	</article>
 </Layout>
-
-<style>
-	main {
-	}
-</style>
 
 <script>
 	// Smooth scroll anchor links
