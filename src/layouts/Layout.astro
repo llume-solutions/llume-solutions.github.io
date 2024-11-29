@@ -1,7 +1,8 @@
 ---
-import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+import heroVid from "../assets/llume-hero-1920x1080-1200kbps.mp4";
+import Card from "../components/Card.astro";
 import Form from "../components/Form.astro";
-import { Image } from "astro:assets";
+import VideoCard from "../components/VideoCard.astro";
 ---
 
 <!doctype html>
@@ -12,7 +13,7 @@ import { Image } from "astro:assets";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>llume - let's automate the boring stuff</title>
+		<title>llume - let's make it real(time)</title>
 	</head>
 	<body class="w-full min-h-[200vh] flex flex-col items-center gap-16">
 		<header id="site-header">
@@ -23,19 +24,55 @@ import { Image } from "astro:assets";
 			</nav>
 		</header>
 		<main class="w-full max-w-screen-lg px-4">
-			<article class="min-h-[min(80vh,800px)] py-28 flex flex-col gap-8">
+			<article class="min-h-[min(80vh,800px)] py-24 flex flex-col gap-8">
 				<section class="flex flex-col gap-1">
-					<p class="text-4xl">We <span class="inline-gradient blue">build software</span></p>
-					<p class="text-4xl"><span class="inline-gradient blue">for small businesses</span> to</p>
-					<p class="text-4xl">run their entire operations through a web browser</p>
+					<p class="text-4xl">
+						We're a London-based creative agency<br />
+						that creates <span class="inline-gradient from-pink-600 to-indigo-400"> digital experiences</span><br />
+						for <span class="inline-gradient from-pink-600 to-indigo-400">live events and gatherings.</span>
+					</p>
 				</section>
 				<div class="flex gap-4">
 					<a class="button" href="#contact">Let's chat</a>
-					<a class="button" href="#scenarios">See how we can help</a>
 				</div>
+				<VideoCard videoSrc={heroVid} />
 			</article>
-			<!-- <LottieAnimation src="./Animation - 1731594218293.json" autoplay="visible" /> -->
-			<article class="min-h-screen w-full grid md:grid-cols-2" id="contact">
+
+			<hr class="h-[1px] bg-gray-300" />
+
+			<article class="py-24">
+				<h1 class="mb-12"><span class="inline-gradient from-indigo-600 to-pink-400">Our process</span></h1>
+				<div class="flex flex-col gap-52">
+					<section class="grid md:grid-cols-[1fr,1.4fr] gap-12">
+						<div class="flex flex-col gap-2">
+							<h2 class="mb-4">1. Start with a chat</h2>
+							<p>Our services revolve around unique opportunities to extend your brand to make lasting impressions</p>
+							<p>Something something</p>
+						</div>
+						<div class="w-full h-52 bg-gray-500"></div>
+					</section>
+					<section class="grid md:grid-cols-[1.4fr,1fr] gap-12">
+						<div class="w-full h-52 bg-gray-500"></div>
+						<div>
+							<h1 class="mb-4">Virtual training</h1>
+							<p>Something something</p>
+							<p>Something something</p>
+						</div>
+					</section>
+				</div>
+				<!-- <section
+					class="bg-gray-500 w-full p-12 rounded-lg bg-gradient-to-tr from-cyan-100 to-pink-100 flex flex-col gap-6"
+				>
+					<section class="grid md:grid-cols-3 gap-4 justify-center">
+						<Card />
+						<Card />
+						<Card />
+					</section>
+				</section> -->
+			</article>
+			<hr class="h-[1px] bg-gray-300" />
+
+			<article class="min-h-screen w-full grid md:grid-cols-2 items-center" id="contact">
 				<section>
 					<h3>Contact us</h3>
 					<h2>How can we help?</h2>
@@ -89,11 +126,7 @@ import { Image } from "astro:assets";
 		}
 
 		.inline-gradient {
-			@apply inline-block text-transparent bg-clip-text;
-
-			&.blue {
-				@apply bg-gradient-to-r from-pink-600 to-indigo-400;
-			}
+			@apply text-transparent bg-clip-text bg-gradient-to-r;
 		}
 
 		body {
@@ -107,25 +140,12 @@ import { Image } from "astro:assets";
 			}
 		}
 
-		article {
-			/*@apply w-full min-h-[84vh] grid items-center grid-cols-1 md:grid-cols-2 gap-6; */
-			/*@apply bg-gray-400;*/
-
-			/* section {
-				@apply flex flex-col items-start gap-8;
-			}*/
-		}
-
 		h1 {
 			@apply text-4xl;
 		}
 
 		h2 {
-			@apply text-5xl;
-		}
-
-		h3 {
-			@apply text-2xl bg-gradient-to-r from-indigo-700 to-indigo-600 inline-block text-transparent bg-clip-text;
+			@apply text-2xl;
 		}
 
 		h4 {
@@ -136,7 +156,7 @@ import { Image } from "astro:assets";
 			@apply cursor-pointer;
 
 			&.button {
-				@apply px-8 py-2 rounded-sm bg-gradient-to-r from-indigo-700 to-indigo-600 text-white;
+				@apply px-8 py-2 rounded-md bg-gradient-to-r from-indigo-500 to-indigo-600 text-white hover:from-indigo-700 hover:to-indigo-800;
 			}
 		}
 	}
