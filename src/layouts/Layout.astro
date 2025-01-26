@@ -1,3 +1,7 @@
+---
+import OurWorkItem from "../components/OurWorkItem.astro";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -10,18 +14,20 @@
 	<body>
 		<nav></nav>
 		<main>
-			<section class="bg-gradient-to-b from-[#FBECEC] to-[#6a6a6a]">
+			<section class="bg-gradient-to-b from-[#FBECEC] to-gray-50">
 				<div class="container">
-					<article class="pt-24 pb-6 flex flex-col gap-6 text-center h-svh">
-						<div class="flex flex-col place-items-center gap-8">
-							<h1>We're LLUME, the 3D web specialists</h1>
-							<p>We design and build 3D product configurators, virtual showrooms and interactive experiences</p>
+					<article class="pt-24 lg:pt-40 pb-6 flex flex-col gap-6 text-center h-svh">
+						<div class="place-items-center mb-12">
+							<h1 class="text-5xl mb-4">We're LLUME, the 3D web specialists</h1>
+							<p class="text-xl mb-12">
+								We design and build 3D product configurators, virtual showrooms and interactive experiences
+							</p>
 							<div class="flex gap-4">
 								<button class="bg-gray-900 text-white py-2 px-8 rounded-full">Book a call</button>
 								<button class="border-2 border-pink-600 p7-2 px-8 rounded-full text-pink-700">View work</button>
 							</div>
 						</div>
-						<div class="flex-1 bg-black rounded-lg">123</div>
+						<div class="flex-1 bg-black rounded-xl">123</div>
 					</article>
 				</div>
 			</section>
@@ -29,7 +35,7 @@
 				<div class="container">
 					<article class="mt-20">
 						<h1 class="mb-12 tracking-wider">OUR PHILOSOPHY</h1>
-						<div class="flex flex-col gap-8 tracking-wide">
+						<div class="flex flex-col gap-8 tracking-wide text-xl lg:max-w-[66%]">
 							<p>We create captivating 3D experiences that anyone can dive in to by just tapping on a link.</p>
 							<p>
 								No downloads. No installations. Just pure, jaw-dropping magic, instantly accessible in your browser.
@@ -59,34 +65,39 @@
 					<article class="mt-24">
 						<h1 class="mb-12">OUR WORK</h1>
 						<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-							<div>
-								<div class="w-full aspect-[5/3] bg-gray-300 rounded-md"></div>
-								<h2>Lorem</h2>
-							</div>
+							<OurWorkItem />
+							<OurWorkItem />
 						</div>
 					</article>
 				</div>
 			</section>
+			<footer class="h-52 bg-gray-200 mt-12"></footer>
 		</main>
-		<footer class="h-52 bg-gray-200 mt-12"></footer>
 	</body>
+
+	<style>
+		@tailwind base;
+		@tailwind components;
+		@tailwind utilities;
+
+		html,
+		body {
+			margin: 0;
+			width: 100%;
+			height: 100%;
+			@apply text-gray-900 bg-gray-50;
+		}
+
+		@layer base {
+			h1 {
+				@apply text-3xl;
+			}
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 1rem;
+		}
+	</style>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-
-	h1 {
-		@apply text-4xl;
-	}
-
-	.container {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 0 1rem;
-	}
-</style>
