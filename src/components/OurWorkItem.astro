@@ -1,5 +1,13 @@
+---
+import vid01 from "../pages/arctic/arctic-vid-01.mp4";
+---
+
 <div>
-  <div class="w-full aspect-[5/3] bg-gray-300 rounded-md"></div>
+  <div class="w-full aspect-video bg-gray-300 rounded-md overflow-hidden">
+    <video autoplay loop muted class="w-full group-hover:scale-[105%] transition-transform duration-1000">
+      <source src={vid01} type="video/mp4" />
+    </video>
+  </div>
   <h2>Arctic Sea Ice</h2>
 </div>
 

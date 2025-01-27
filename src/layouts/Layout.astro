@@ -4,6 +4,7 @@ import OurServicesItem from "../components/OurServicesItem.astro";
 import OurWorkItem from "../components/OurWorkItem.astro";
 import SplitText from "../components/SplitText.astro";
 import sphereImg from "../assets/sphere.svg";
+import RoundedButton from "../components/RoundedButton.astro";
 ---
 
 <!doctype html>
@@ -20,16 +21,16 @@ import sphereImg from "../assets/sphere.svg";
 		<main>
 			<section class="relative">
 				<div class="container relative z-10">
-					<article class="pt-24 lg:pt-40 pb-6 flex flex-col gap-6 text-center h-svh">
+					<article class="pt-24 lg:pt-40 pb-6 flex flex-col gap-6 text-center min-h-svh md:min-h-[unset]">
 						<div class="place-items-center mb-12">
-							<h1 class="text-5xl mb-4">We're LLUME, the 3D web specialists</h1>
+							<h1 class="text-3xl md:text-5xl mb-4">We're LLUME, the 3D web specialists</h1>
 							<p class="text-xl mb-12">We design and build 3D product configurators, virtual showrooms and interactive experiences</p>
 							<div class="flex gap-4">
 								<button class="bg-gray-900 text-white py-2 px-8 rounded-full">Book a call</button>
-								<button class="border-2 border-pink-600 p7-2 px-8 rounded-full text-pink-700">View work</button>
+								<button class="border-2 border-pink-600 py-2 px-8 rounded-full text-pink-700">View work</button>
 							</div>
 						</div>
-						<div class="flex-1 bg-black rounded-xl">123</div>
+						<div class="flex-1  md:flex-none md:aspect-[5/3] bg-[#000000d4] rounded-xl mix-blend-screen"></div>
 					</article>
 				</div>
 				<div class="wrapper">
@@ -48,8 +49,8 @@ import sphereImg from "../assets/sphere.svg";
 							<p>That's the power of WebGL - video game-level fidelity in a browser. From smartphones to desktop to immersive headset.</p>
 							<p>But if your developers are inexperienced, they run the chance of creating an unmaintainable, slow mess.</p>
 							<p>
-								Or you'll end up with uncanny valley, where a lack of expertise in rendering, animation and art make the 3D experience feel eerily off. The
-								ultimate turn-off.
+								Or, if they lack the expertise in art, animation and rendering, you run the risk of entering uncanny valley, where the 3D experience feel eerily
+								off. The ultimate turn-off.
 							</p>
 							<p>That's why we focus 100% on 3D web dev and design. Because that's the only way to unmatched mastery in this discipline.</p>
 						</div>
@@ -60,9 +61,24 @@ import sphereImg from "../assets/sphere.svg";
 				<div class="container">
 					<article>
 						<h1 class="mb-12">OUR WORK</h1>
-						<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-							<OurWorkItem />
-							<OurWorkItem />
+						<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+							<a href="#" class="relative group bg-gray-500 md:col-span-2 row-span-2 aspect-video lg:aspect-[5/3]">
+								<div class="relative z-10 h-full p-12 flex flex-col items-start gap-4">
+									<p class="text-sm">In-house</p>
+									<p class="text-3xl">Visualising NASA snow ice data</p>
+									<p class="opacity-0 group-hover:opacity-100 translate-y-10 group-hover:translate-y-0 transition-all duration-500 delay-75">
+										Visualising dense, complex data in 3D space to empower more people to understand the numbers and join the conversation.
+									</p>
+									<button
+										class="mt-auto border-2 border-pink-600 py-2 px-8 rounded-full text-pink-700 translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all delay-200 duration-500"
+										>Go to project</button
+									>
+								</div>
+								<div class="absolute inset-0 bg-purple-50 opacity-0 group-hover:opacity-25 transition-opacity duration-300"></div>
+							</a>
+							<div class="bg-gray-500 aspect-video lg:aspect-[unset]">2</div>
+							<div class="bg-gray-500 aspect-video lg:aspect-[unset]">2</div>
+							<div class="bg-gray-500">2</div>
 						</div>
 					</article>
 				</div>
@@ -133,7 +149,7 @@ import sphereImg from "../assets/sphere.svg";
 		/* https://fracergu.github.io/css-plasma-background-generator/ */
 		.wrapper {
 			position: absolute;
-			top: 0;
+			top: 10vh;
 			left: 0;
 			width: 100%;
 			height: 100%;
@@ -154,7 +170,7 @@ import sphereImg from "../assets/sphere.svg";
 			background: rgb(81, 8, 146) none repeat scroll 0% 0% / auto padding-box border-box;
 			width: 700px;
 			height: 700px;
-			animation-duration: 11s;
+			animation-duration: 8s;
 			opacity: 0.6;
 			left: 60%;
 			top: 40%;
@@ -165,7 +181,7 @@ import sphereImg from "../assets/sphere.svg";
 			background: rgb(55, 32, 173) none repeat scroll 0% 0% / auto padding-box border-box;
 			width: 600px;
 			height: 600px;
-			animation-duration: 11s;
+			animation-duration: 8s;
 			opacity: 0.6;
 			left: 40%;
 			top: 60%;
@@ -176,7 +192,7 @@ import sphereImg from "../assets/sphere.svg";
 			background: rgb(115, 60, 29) none repeat scroll 0% 0% / auto padding-box border-box;
 			width: 500px;
 			height: 500px;
-			animation-duration: 11s;
+			animation-duration: 8s;
 			opacity: 0.6;
 			left: 50%;
 			top: 50%;
