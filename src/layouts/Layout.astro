@@ -18,9 +18,8 @@ import sphereImg from "../assets/sphere.svg";
 	<body>
 		<nav></nav>
 		<main>
-			<section class="intro relative">
-			
-				<div class="container">
+			<section class="relative">
+				<div class="container relative z-10">
 					<article class="pt-24 lg:pt-40 pb-6 flex flex-col gap-6 text-center h-svh">
 						<div class="place-items-center mb-12">
 							<h1 class="text-5xl mb-4">We're LLUME, the 3D web specialists</h1>
@@ -33,8 +32,13 @@ import sphereImg from "../assets/sphere.svg";
 						<div class="flex-1 bg-black rounded-xl">123</div>
 					</article>
 				</div>
+				<div class="wrapper">
+					<div class="gradient gradient-1"></div>
+					<div class="gradient gradient-2"></div>
+					<div class="gradient gradient-3"></div>
+				</div>
 			</section>
-			<section class="py-12 bg-pink-500">
+			<section class="py-16">
 				<div class="container">
 					<article>
 						<h1 class="mb-12 tracking-wider">OUR PHILOSOPHY</h1>
@@ -52,8 +56,7 @@ import sphereImg from "../assets/sphere.svg";
 					</article>
 				</div>
 			</section>
-
-			<section class="py-12 bg-gray-400">
+			<section class="py-16">
 				<div class="container">
 					<article>
 						<h1 class="mb-12">OUR WORK</h1>
@@ -64,14 +67,15 @@ import sphereImg from "../assets/sphere.svg";
 					</article>
 				</div>
 			</section>
-			<section class="py-12 bg-gray-950 text-gray-50">
+			<section class="py-16 bg-gray-950 text-gray-50">
 				<div class="container">
-					<article class="grid lg:grid-cols-5">
-						<div class="lg:col-span-2 gap-1 flex flex-col gap-4">
+					<article class="grid lg:grid-cols-5 gap-12">
+						<div class="lg:col-span-2 grid gap-4">
 							<Image src={sphereImg} alt="A trippy sphere" class="w-16" />
-							<h1 class="mb-12">OUR SERVICES</h1>
+							<h1>OUR SERVICES</h1>
+							<p>Need to discuss in more detail? Let's talk!</p>
 						</div>
-						<div class="grid gap-6 lg:col-span-3">
+						<div class="grid gap-3 lg:col-span-3">
 							<OurServicesItem title="Custom 3D three.js and babylon.js development">
 								<p>Custom three.js dev</p>
 								<p>Custom three.js dev</p>
@@ -119,64 +123,65 @@ import sphereImg from "../assets/sphere.svg";
 		}
 
 		@layer components {
-			.gradient-container {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				overflow: hidden;
-				filter: blur(150px);
-			}
-
-			.gradient {
-				position: absolute;
-				border-radius: 100%;
-				opacity: 0.6;
-				mix-blend-mode: screen;
-				animation-iteration-count: infinite;
-				animation-timing-function: cubic-bezier(0.1, 0, 0.9, 1);
-			}
-
-			.gradient-1 {
-				background: rgb(62, 63, 96) none repeat scroll 0% 0% / auto padding-box border-box;
-				width: 700px;
-				height: 700px;
-				animation-duration: 11s;
-				opacity: 0.6;
-				left: 60%;
-				top: 40%;
-				z-index: -2;
-				animation-name: animation-gradient-1;
-			}
-			.gradient-2 {
-				background: rgb(151, 45, 54) none repeat scroll 0% 0% / auto padding-box border-box;
-				width: 600px;
-				height: 600px;
-				animation-duration: 11s;
-				opacity: 0.6;
-				left: 40%;
-				top: 60%;
-				z-index: -1;
-				animation-name: animation-gradient-2;
-			}
-			.gradient-3 {
-				background: rgb(239, 92, 95) none repeat scroll 0% 0% / auto padding-box border-box;
-				width: 500px;
-				height: 500px;
-				animation-duration: 11s;
-				opacity: 0.6;
-				left: 50%;
-				top: 50%;
-				z-index: -3;
-				animation-name: animation-gradient-3;
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 1rem;
 			}
 		}
 
-		.container {
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 0 1rem;
+		/* https://fracergu.github.io/css-plasma-background-generator/ */
+		.wrapper {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			filter: blur(150px);
+		}
+
+		.gradient {
+			position: absolute;
+			border-radius: 100%;
+			opacity: 0.6;
+			mix-blend-mode: screen;
+			animation-iteration-count: infinite;
+			animation-timing-function: cubic-bezier(0.1, 0, 0.9, 1);
+		}
+
+		.gradient-1 {
+			background: rgb(81, 8, 146) none repeat scroll 0% 0% / auto padding-box border-box;
+			width: 700px;
+			height: 700px;
+			animation-duration: 11s;
+			opacity: 0.6;
+			left: 60%;
+			top: 40%;
+			z-index: -2;
+			animation-name: animation-gradient-1;
+		}
+		.gradient-2 {
+			background: rgb(55, 32, 173) none repeat scroll 0% 0% / auto padding-box border-box;
+			width: 600px;
+			height: 600px;
+			animation-duration: 11s;
+			opacity: 0.6;
+			left: 40%;
+			top: 60%;
+			z-index: -1;
+			animation-name: animation-gradient-2;
+		}
+		.gradient-3 {
+			background: rgb(115, 60, 29) none repeat scroll 0% 0% / auto padding-box border-box;
+			width: 500px;
+			height: 500px;
+			animation-duration: 11s;
+			opacity: 0.6;
+			left: 50%;
+			top: 50%;
+			z-index: -3;
+			animation-name: animation-gradient-3;
 		}
 
 		@keyframes animation-gradient-1 {
