@@ -1,0 +1,8 @@
+---
+const { text, class: pclass } = Astro.props;
+const words = text.split(" ") as string[];
+---
+
+<p class={pclass}>
+  {words.map((word, index) => <span>{word} </span>)}
+</p>
