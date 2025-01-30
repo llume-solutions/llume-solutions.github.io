@@ -1,10 +1,9 @@
 ---
 import { Image } from "astro:assets";
+import sphereImg from "../assets/sphere.svg";
 import OurServicesItem from "../components/OurServicesItem.astro";
 import OurWorkItem from "../components/OurWorkItem.astro";
 import SplitText from "../components/SplitText.astro";
-import sphereImg from "../assets/sphere.svg";
-import RoundedButton from "../components/RoundedButton.astro";
 ---
 
 <!doctype html>
@@ -89,8 +88,6 @@ import RoundedButton from "../components/RoundedButton.astro";
 								heading="Visualising NASA snow ice data"
 								subheading="Visualising dense, complex data in 3D space to empower more people to understand the numbers and join the conversation."
 							/>
-							<!-- <OurWorkItem class="md:col-span-2 bg-pink-500 aspect-video" client="In-house" heading="Product visualiser" />
-							<OurWorkItem class="md:col-span-2 bg-pink-500 aspect-video" /> -->
 						</div>
 					</article>
 				</div>
@@ -127,20 +124,6 @@ import RoundedButton from "../components/RoundedButton.astro";
 			<footer class="h-96 bg-gray-200"></footer>
 		</main>
 	</body>
-
-	<script>
-		// import { gsap } from "gsap";
-		// import { ScrollTrigger } from "gsap/ScrollTrigger";
-		// gsap.registerPlugin(ScrollTrigger);
-
-		// gsap.to("#philosophy-1", {
-		// 	scrollTrigger: {
-		// 		trigger: "#philosophy-1",
-		// 		start: "top 50%",
-		// 	},
-		// 	x: 500,
-		// });
-	</script>
 
 	<style is:global>
 		@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
