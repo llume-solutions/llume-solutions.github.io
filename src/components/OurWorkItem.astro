@@ -1,13 +1,14 @@
 ---
 import vid01 from "../pages/arctic/llume-arctic-hero-2-1280x720-220kbps.mp4";
 
-const { class: containerClass, client, heading, subheading } = Astro.props;
+const { class: containerClass, innerClass, client, heading, subheading } = Astro.props;
+const fontScale = 0.3;
 ---
 
-<a href="#" class=`${containerClass} relative group`>
+<a href="#" class=`${containerClass} relative group h-full`>
   <div class="relative z-10 h-full flex flex-col items-start gap-4 overflow-hidden">
     <video class="absolute h-full w-full mt-auto mb-auto object-cover" src={vid01} autoplay></video>
-    <div class="relative h-full w-3s/5 z-10 p-12 flex flex-col items-start gap-4 overflow-hidden">
+    <div class=`${innerClass} relative h-full w-3s/5 z-10 p-12 flex flex-col items-start gap-4 overflow-hidden`>
       <p class="text-sm">{client}</p>
       <p class="text-3xl">{heading}</p>
       <p class="opacity-0 group-hover:opacity-100 translate-y-10 group-hover:translate-y-0 transition-all duration-500 delay-75">
@@ -22,13 +23,5 @@ const { class: containerClass, client, heading, subheading } = Astro.props;
   <div class="absolute inset-0 bg-purple-50 opacity-0 group-hover:opacity-25 transition-opacity duration-300"></div>
 </a>
 <style>
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
 
-  @layer base {
-    h2 {
-      @apply text-xl;
-    }
-  }
 </style>

@@ -9,5 +9,21 @@ const { title } = Astro.props;
       ><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"></path></svg
     >
   </summary>
-  <div class="p-4"><slot /></div>
+  <div class="p-4 our-service-item-content transition-[height] duration-500"><slot /></div>
 </details>
+<style>
+  details {
+    interpolate-size: allow-keywords;
+    transition-behavior: allow-discrete;
+    overflow: hidden;
+  }
+
+  details::details-content {
+    transition: all 200ms ease-out;
+    block-size: 0px;
+  }
+
+  details[open]::details-content {
+    block-size: auto;
+  }
+</style>

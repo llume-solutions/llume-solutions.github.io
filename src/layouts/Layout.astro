@@ -44,7 +44,7 @@ import RoundedButton from "../components/RoundedButton.astro";
 					<article>
 						<h1 class="mb-12 tracking-wider">OUR PHILOSOPHY</h1>
 						<div class="flex flex-col gap-8 text-xl lg:max-w-[66%]">
-							<p>We create captivating 3D experiences that anyone can dive in to by just tapping on a link.</p>
+							<p id="philosophy-1">We create captivating 3D experiences that anyone can dive in to by just tapping on a link.</p>
 							<p>No downloads. No installations. Just pure, jaw-dropping magic, instantly accessible in your browser.</p>
 							<p>That's the power of WebGL - video game-level fidelity in a browser. From smartphones to desktop to immersive headset.</p>
 							<p>But if your developers are inexperienced, they run the chance of creating an unmaintainable, slow mess.</p>
@@ -68,7 +68,14 @@ import RoundedButton from "../components/RoundedButton.astro";
 								heading="Visualising NASA snow ice data"
 								subheading="Visualising dense, complex data in 3D space to empower more people to understand the numbers and join the conversation."
 							/>
-							<OurWorkItem class="bg-pink-500 aspect-video" />
+							<OurWorkItem
+								class=""
+								innerClass="!p-4"
+								client="In-house"
+								heading="Visualising NASA snow ice data"
+								subheading="Visualising dense, complex data in 3D space to empower more people to understand the numbers and join the conversation."
+							/>
+							<OurWorkItem class="bg-pink-500 aspect-video" client="In-house" heading="Product visualiser" />
 							<OurWorkItem class="bg-pink-500 aspect-video" />
 						</div>
 					</article>
@@ -77,7 +84,7 @@ import RoundedButton from "../components/RoundedButton.astro";
 			<section class="py-16 bg-gray-950 text-gray-50">
 				<div class="container">
 					<article class="grid lg:grid-cols-5 gap-12">
-						<div class="lg:col-span-2 flex flex-col gap-4  items-start">
+						<div class="lg:col-span-2 flex flex-col gap-4 items-start">
 							<Image src={sphereImg} alt="A trippy sphere" class="w-16" />
 							<h1>OUR SERVICES</h1>
 							<p>Need to discuss in more detail? Let's talk!</p>
@@ -107,7 +114,23 @@ import RoundedButton from "../components/RoundedButton.astro";
 		</main>
 	</body>
 
+	<script>
+		import { gsap } from "gsap";
+		import { ScrollTrigger } from "gsap/ScrollTrigger";
+		gsap.registerPlugin(ScrollTrigger);
+
+		gsap.to("#philosophy-1", {
+			scrollTrigger: {
+				trigger: "#philosophy-1",
+				start: "top 50%",
+			},
+			x: 500,
+		});
+	</script>
+
 	<style is:global>
+		@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
 		@tailwind base;
 		@tailwind components;
 		@tailwind utilities;
@@ -117,6 +140,12 @@ import RoundedButton from "../components/RoundedButton.astro";
 			margin: 0;
 			width: 100%;
 			height: 100%;
+			font-family: "Open Sans", serif;
+			font-optical-sizing: auto;
+			font-weight: 400;
+			font-style: normal;
+			font-variation-settings: "wdth" 100;
+
 			@apply text-gray-900 bg-gray-50;
 		}
 		@layer base {
