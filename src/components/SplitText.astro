@@ -3,6 +3,36 @@ const { text, class: pclass } = Astro.props;
 const words = text.split(" ") as string[];
 ---
 
-<p class={pclass}>
-  {words.map((word, index) => <span>{word} </span>)}
+<p class=`${pclass ? pclass : ''} split-text-container ${words[0]}`>
+  {words.map((word, index) => <span class="opacity-25">{word} </span>)}
 </p>
+<script>
+  import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  function awaitableGsap(el: HTMLElement, vars: gsap.TweenVars) {
+    return new Promise((resolve) => {
+      vars.onComplete = resolve;
+      gsap.to(el, vars);
+    });
+  }
+
+  const pElements = document.querySelectorAll(".split-text-container");
+
+  async function initSpltTextAnim() {
+    for (let i = 0; i < pElements.length; i++) {
+      await awaitableGsap(pElements[i] as HTMLElement, {
+        scrollTrigger: {
+          trigger: pElements[i],
+          start: "top 50%",
+          once: true,
+          onEnter: () => {
+            gsap.fromTo(pElements[i].querySelectorAll("span"), { opacity: 0.25 }, { opacity: 1, stagger: 0.2 });
+          },
+        },
+      });
+    }
+  }
+  initSpltTextAnim();
+</script>
