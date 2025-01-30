@@ -8,30 +8,28 @@ const words = text.split(" ") as string[];
 </p>
 <script>
   import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
 
-  function awaitableGsap(el: HTMLElement, vars: gsap.TweenVars) {
+  function awaitableGsap(el: HTMLElement) {
     return new Promise((resolve) => {
-      vars.onComplete = resolve;
-      gsap.to(el, vars);
-    });
-  }
-
-  const pElements = document.querySelectorAll(".split-text-container");
-
-  async function initSpltTextAnim() {
-    for (let i = 0; i < pElements.length; i++) {
-      await awaitableGsap(pElements[i] as HTMLElement, {
+      gsap.to(el, {
         scrollTrigger: {
-          trigger: pElements[i],
+          trigger: el,
           start: "top 50%",
           once: true,
           onEnter: () => {
-            gsap.fromTo(pElements[i].querySelectorAll("span"), { opacity: 0.25 }, { opacity: 1, stagger: 0.2 });
+            gsap.to(el.querySelectorAll("span"), { opacity: 1, stagger: 0.06, onComplete: resolve });
           },
         },
       });
+    });
+  }
+
+  async function initSpltTextAnim() {
+    const pElements = document.querySelectorAll(".split-text-container");
+    for (let i = 0; i < pElements.length; i++) {
+      await awaitableGsap(pElements[i] as HTMLElement);
     }
   }
   initSpltTextAnim();
