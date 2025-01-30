@@ -5,23 +5,17 @@ const { class: containerClass, innerClass, client, heading, subheading } = Astro
 const fontScale = 0.3;
 ---
 
-<a href="#" class=`${containerClass} relative group h-full`>
+<a href="#" class=`${containerClass} relative  h-full text-[clamp(0.5rem, 3vw, 2rem)]`>
   <div class="relative z-10 h-full flex flex-col items-start gap-4 overflow-hidden">
     <video class="absolute h-full w-full mt-auto mb-auto object-cover" src={vid01} autoplay></video>
-    <div class=`${innerClass} relative h-full w-3s/5 z-10 p-12 flex flex-col items-start gap-4 overflow-hidden`>
-      <p class="text-sm">{client}</p>
-      <p class="text-3xl">{heading}</p>
-      <p class="opacity-0 group-hover:opacity-100 translate-y-10 group-hover:translate-y-0 transition-all duration-500 delay-75">
+    <div class=`${innerClass} relative h-full w-3s/5 z-10 p-4 flex flex-col items-start gap-4 overflow-hidden`>
+      <p class="">{client}</p>
+      <p class="text-[1.75em]">{heading}</p>
+      <p class="">
         {subheading}
       </p>
-      <button
-        class="mt-auto border-2 border-pink-600 py-2 px-8 rounded-full text-pink-700 translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all delay-200 duration-500"
-        >Go to project</button
-      >
+      <button class="mt-auto border-2 border-pink-600 py-2 px-8 rounded-full text-pink-700">Go to project</button>
     </div>
   </div>
-  <div class="absolute inset-0 bg-purple-50 opacity-0 group-hover:opacity-25 transition-opacity duration-300"></div>
 </a>
-<style>
-
-</style>
+<style></style>
